@@ -18,10 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Demos\Module1\Demo_ArrayList.cs" />
+    <Compile Remove="Demos\Module1\CoffeeSales.cs" />
     <Compile Remove="Demos\Module1\Demo_Calories2D.cs" />
     <Compile Remove="Demos\Module1\Demo_Calories3D.cs" />
     <Compile Remove="Demos\Module1\Demo_JaggedArray.cs" />
+    <Compile Remove="Demos\Module1\TwoDArrayApp.cs" />
     <Compile Remove="Program.cs" />
   </ItemGroup>
 

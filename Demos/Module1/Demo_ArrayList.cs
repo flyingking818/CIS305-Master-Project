@@ -55,7 +55,9 @@ public class SamplesArrayList
 
         // Adding another element to potentially increase the capacity
         demoAL.Add("Item 6");
-     
+        demoAL.Add("Item 7");
+        demoAL.Add("Item 8");
+        demoAL.Add("Item 9");
 
         // After adding the 6th element, which might trigger an increase in capacity
         WriteLine("Count after adding 6 elements: {0}", demoAL.Count); // Count is 6
@@ -67,6 +69,8 @@ public class SamplesArrayList
         // Remove elements
         myAL.Remove(1);   // Removes first occurrence of 1
         myAL.RemoveAt(0); // Removes "Hello"
+        //ArrayList can't do RemoveAll (we have to use the generic list)
+
 
         // Check if an element exists
         if (myAL.Contains(true))
@@ -110,7 +114,7 @@ public class SamplesArrayList
         numbers.Remove(30);  // Removes first occurrence of 30
         numbers.RemoveAt(0); // Removes element at index 0
         numbers.RemoveRange(3, 2); // Removes 2 elements starting at index 3
-        
+        numbers.RemoveAll(x => x == 100); //LINQ language! :)
 
         //  Check if a number exists
         if (numbers.Contains(50))
