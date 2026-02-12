@@ -10,20 +10,26 @@
 
   <ItemGroup>
     <Compile Remove="Assignments\**" />
+    <Compile Remove="Demos\**" />
     <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="Assignments\**" />
+    <EmbeddedResource Remove="Demos\**" />
     <EmbeddedResource Remove="Tests\**" />
     <None Remove="Assignments\**" />
+    <None Remove="Demos\**" />
     <None Remove="Tests\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Demos\Module1\CoffeeSales.cs" />
-    <Compile Remove="Demos\Module1\Demo_Calories2D.cs" />
-    <Compile Remove="Demos\Module1\Demo_Calories3D.cs" />
-    <Compile Remove="Demos\Module1\Demo_JaggedArray.cs" />
-    <Compile Remove="Demos\Module1\TwoDArrayApp.cs" />
     <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Demos\Module2\D1ParameterTypes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Demos\Module2\Loan.cd" />
   </ItemGroup>
 
 </Project>
