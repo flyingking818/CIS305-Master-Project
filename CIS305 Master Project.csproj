@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Demos\Module2\D1ParameterTypes.cs" />
+    <Compile Include="Demos\Module2\D4DemoCarLoanV2.cs" />
   </ItemGroup>
 
   <ItemGroup>

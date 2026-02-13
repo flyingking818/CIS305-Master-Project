@@ -51,9 +51,12 @@ class Loan
     public string LoanDuration { get; set; }
     public DateTime LoanStartDate { get; set; }
 
+    //Priviate field - camel case
+    //Public property - pascal case
+
     //public double APR { get; set; }
     //Another alternative format (rocket symbol)
-    public double apr = 0;
+    private double apr = 0;  //private field used to store the value of APR property
     public double APR
     //The APR property has special business rules. Therefore, the instance variables are required.
     {
