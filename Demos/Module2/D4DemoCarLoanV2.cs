@@ -55,7 +55,8 @@ class Loan
 }
 
 //Derived class CarLoan (also called subclass or child class) - *use : to specifiy the inherence relationship
-class CarLoan : Loan
+//Interfaces is about ability to do something. - What can you do?
+class CarLoan : Loan  //inherentence is about hierarchy of identifies. - Who are you?
 {
    public int Year {get; set;}
    public string Make {get; set;}

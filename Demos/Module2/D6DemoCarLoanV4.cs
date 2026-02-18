@@ -29,13 +29,32 @@ class Loan
    public const double MINIMUM_LOAN = 5_000;
    protected double loanAmount;
 
+    //Constructor - a method we use to instantiate objects and pass in values easily!
    public Loan(int num, string name, double amount)
    {
       LoanNumber = num;
       LastName = name;
       LoanAmount = amount;
    }
-   public int LoanNumber {get; set;}
+    /*
+    public Loan(int num, string name, double amount, string carType)
+    {
+        LoanNumber = num;
+        LastName = name;
+        LoanAmount = amount;
+        //CarType = carType;
+    }
+
+    public Loan(int num, string name, double amount, int years)
+    {
+        LoanNumber = num;
+        LastName = name;
+        LoanAmount = amount;
+        //Years = years;
+    }
+    */
+
+    public int LoanNumber {get; set;}
    public string LastName {get; set;}
    public double LoanAmount
    {
