@@ -24,16 +24,46 @@ namespace CIS305_Master_Project.Demos.Module2
             Professor prof = new Professor("Jeremy Wang", 25, "Math & Technology");
             prof.DisplayRole();
 
+            //Option 1- Let's the interface call explicitly! Recommended!
+            ITeachable t = prof;
+            t.Teach();
+
+            //Alternative - interface casting (similar to data type casting)
+            ((ITeachable)prof).Teach();
+
+            //Option 2 - Normal method call
+            prof.Learn();
+
             //Let's work a student object
-            Student flaglerStudent = new Student("Stacey", 22, "CIS");
+            Student flaglerStudent = new Student("Stacy", 22, "CIS");
             flaglerStudent.DisplayRole();
+            ((ITeachable)flaglerStudent).Teach();
+            flaglerStudent.Learn();
 
             //Let's work a staff object
             Staff staffMember = new Staff("Will Jackson", 45, "IT Director");
+            staffMember.DisplayRole();
+            ((IAdministratable)staffMember).Administrate();
 
         }
 
     }
+
+    //Add Interfaces after the implementation class (some do this at the end)
+    //Think of this as the bulletin board.
+    public interface ITeachable {
+        void Teach();
+    }
+
+    public interface ILearnable
+    {
+        void Learn();
+    }
+
+    public interface IAdministratable {
+        void Administrate();
+    }
+
 
     public abstract class Person
     {
@@ -88,7 +118,7 @@ namespace CIS305_Master_Project.Demos.Module2
 
     //We need establish the inherent betwen subclasses and the Person base class
     //Inherence is about identity relationship!!!
-    public class Professor : Person
+    public class Professor : Person, ITeachable, ILearnable
     {
         public string Department { get; set; }
 
@@ -105,9 +135,28 @@ namespace CIS305_Master_Project.Demos.Module2
         {
             WriteLine($"{Name} is a professor (age: {Age.ToString()}) from {Department} at Flagler!");
         }
+
+        //Do the interfaces after all custom methods
+        //Option 1 - explicit interfaces!
+        //1) Avoid name conflicts
+        //2) Hide your interface from the public API
+        //3) Force interface based usage! (requires specific interface declaration)
+
+        void ITeachable.Teach()
+        {
+            WriteLine($"{Name} is teaching {Department} courses.");  //enhance!
+        }
+
+        //Option 2 - Normal method.
+        public void Learn()
+        {
+            WriteLine($"{Name} is learning agentic AI now!");
+        }
+
     }
 
-    public class Student:Person
+
+    public class Student:Person, ITeachable, ILearnable
     {
         public string Major {  get; set; }
 
@@ -119,9 +168,23 @@ namespace CIS305_Master_Project.Demos.Module2
         {
             WriteLine($"{Name} is a student (age: {Age.ToString()}) with {Major} at Flagler!");
         }
+
+        //Student interface methods
+        void ITeachable.Teach()
+        {
+            WriteLine($"{Name} is a TA for {Major} courses.");  //enhance!
+        }
+
+        //Option 2 - Normal method.
+        public void Learn()
+        {
+            WriteLine($"{Name} is learning {Major} subjects!");
+        }
+
+
     }
 
-    public class Staff : Person
+    public class Staff : Person, IAdministratable
     {
         public string Position { get; set; }
 
@@ -133,6 +196,11 @@ namespace CIS305_Master_Project.Demos.Module2
         public override void DisplayRole()
         {
             WriteLine($"{Name} (age: {Age.ToString()}) works as a {Position} at Flagler!");
+        }
+
+        void IAdministratable.Administrate()
+        {       
+            WriteLine($"{Name} is a {Position} serving Flagler!");  //enhance!
         }
     }
 
